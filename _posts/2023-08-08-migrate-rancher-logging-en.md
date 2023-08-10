@@ -15,16 +15,16 @@ Rancher provides an application named "Logging" in ther app store.
 
 "Collects and filter logs using highly configurable CRDs. Powered by Banzai Cloud."
 
-In fact it's Kube Logging, adapted and enriched with Rancher specific logging mechanism like RKE logging or logging for K3S.
-In this blog post we will explain how to migrate from Rancher Logging to Kube Logging directly.
+In fact it's the [Banzai Cloud Logging Operator](https://github.com/kube-logging/logging-operator), adapted and enriched with Rancher specific logging mechanisms like RKE logging or logging for K3S.
+In this blog post we will explain how to migrate from Rancher Logging to the new Logging Operator hosted under the [kube-logging organization](https://github.com/kube-logging) directly.
 
-Kube Logging is a project formaly invented by Banzai Cloud, a Kubernetes Certified Service Provider located in Hungary. The startup was acquired by Cisco, but is now independent again and operates as a company named Axoflow. The software is fully Open Source and maintained. But that's the historical background why this customer resources definitions still have this name, banzaicloud.io.
+The Logging Operator is a project originally created by Banzai Cloud, a Kubernetes Certified Service Provider located in Hungary. The startup was acquired by Cisco, but later the the original authors started a new company called Axoflow and are still the most active maintainers of the project, which is still open source. That's the historical background why the Custom Resources Definitions still have the name, `logging.banzaicloud.io`.
 
 # Why migrate?
 
 In the past Rancher developed his own services for logging and monitoring, version 1, controlled by the upstream cluster, with his own resources and software. It couldn't be adapted from other vendors, because it worked only with Rancher. 
 
-In version 2 Rancher forked common Open Source projects like Kube Prometheus Stack for monitoring and Banzai Cloud for logging. The software was adapted for specific Rancher installations like RKE1, RKE2, K3S, tested and released. At the end you have a stable version, integrated and running in Rancher. Only the support is limited. If you have issues, your problem will only forwarded to the Upstream community. These tests and integration takes time, where Rancher spends not so much in this sidecar services. Only after 3 or 6 months a new release will published.
+In version 2 Rancher forked common Open Source projects like Kube Prometheus Stack for monitoring and the Banzai Cloud Logging Operator for logging. The software was adapted for specific Rancher installations like RKE1, RKE2, K3S, tested and released. At the end you have a stable version, integrated and running in Rancher. Only the support is limited. If you have issues, your problem will only forwarded to the Upstream community. These tests and integration takes time, where Rancher spends not so much in this sidecar services. Only after 3 or 6 months a new release will published.
 
 The Upstream projects working much faster, new features are released in days or weeks. And you have support directly from the maintainer. If you are interested on new features and not so much on Rancher specific adaptions, you are a candidate for migration.
 
