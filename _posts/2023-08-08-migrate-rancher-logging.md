@@ -107,7 +107,7 @@ Warning: resource customresourcedefinitions/loggings.logging.banzaicloud.io is m
 The CustomResourceDefinition "loggings.logging.banzaicloud.io" is invalid: metadata.annotations: Too long: must have at most 262144 bytes
 ```
 
-Das schlägt oft fehl wegen der limitierten Grösse von client-side metadata.annotations, in dem der komplette Inhalt von CRDs gehalten werden.
+Das schlägt oft fehl wegen der limitierten Grösse von client-side metadata.annotations, in dem der komplette Inhalt von CRDs gehalten wird.
 
 
 Ein besserer Ansatz ist die Benutzung des server-side Flag:
