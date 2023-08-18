@@ -114,3 +114,4 @@ scheint so
 
 Über die Release-Seite des jeweiligen Projekts kann man sich meistens das Programm herunterladen, oder mit Krew installieren.
 
+Viel Spass!
