@@ -29,17 +29,20 @@ Zu was kann man kubectl-curl jetzt alles verwenden:
 $ kubectl curl -n demoapp  http://demoapp-57bf45f76-bgkwb:8080/
 ```
 
-- Metriken von Programmen
+- Metriken von Programmen:
+
 ```bash
 $ kubectl curl -n kube-logging http://kube-logging-logging-operator-f874c54f8-wcd6g:8080/metrics
 ```
 
-- Prometheus abfragen
+- Prometheus abfragen:
+
 ```bash
 $ kubectl curl -n cattle-monitoring-system http://prometheus-rancher-monitoring-prometheus-0:9090/api/v1/query?query=fluentbit_uptime | jq .
 ```
 
-- Healthcheck von Diensten
+- Healthcheck von Diensten:
+
 ```bash
 $ kubectl curl -n kube-system http://traefik-rmtth:9000/ping
 ```
