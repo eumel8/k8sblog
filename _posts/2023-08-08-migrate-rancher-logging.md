@@ -5,7 +5,7 @@ title: Migration Rancher Logging
 subtitle: Wie migriert man von Rancher Logging zu Kube Logging, und warum
 date: 2023-08-08
 background: '/images/k8s-cosmos.png'
-twitter: 'images/cosignwebhook.png'
+twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---
 

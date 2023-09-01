@@ -5,7 +5,7 @@ title: Curl Kubernetes API
 subtitle: How to call Kubernetes API with call?
 date: 2023-08-17
 background: '/images/k8s-cosmos.png'
-twitter: 'images/cosignwebhook.png'
+twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---
 

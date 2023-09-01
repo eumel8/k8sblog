@@ -5,7 +5,7 @@ title: "Mit etcd auf Du und Du"
 subtitle: "Kubernetes Daten aus einem etcd Backup wiederherstellen. Klingt nicht so erstrebenswert, war aber kürzlich notwendig, weil jemand alte CRDs gelöscht hat *hüstel*"
 date: 2023-07-27
 background: '/images/k8s-cosmos.png'
-twitter: 'images/cosignwebhook.png'
+twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---
 
