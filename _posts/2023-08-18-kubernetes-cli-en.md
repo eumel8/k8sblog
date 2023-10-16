@@ -13,7 +13,7 @@ author: eumel8
 kubectl is the ultimate tool for working with Kubernetes. It can be installed as a package for different distributions, or as a single file. Details on the [Kubernetes website](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) . To connect to a Kubernetes cluster, you need credentials, which you can get from your provider as a KUBECONFIG file. This includes the endpoint of the Kubernetes cluster and the credentials, either a certificate, password or token. The operation is intuitive for exploring the Kubernetes resources or creating them.
 
 # Kubectl-Plugins
-If the functionality of kubecl is not enough for you, you can have it expanded with plugins. [Krew](https://krew.sigs.k8s.io/plugins/) is a plugin manager. You can also download and use plugins manually. Here is a selection:
+If the functionality of kubectl is not enough for you, you can have it expanded with plugins. [Krew](https://krew.sigs.k8s.io/plugins/) is a plugin manager. You can also download and use plugins manually. Here is a selection:
 
 ## ketall
 

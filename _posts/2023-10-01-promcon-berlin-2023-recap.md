@@ -11,11 +11,11 @@ author: eumel8
 
 # Bring the fire
 
-Did you know? Prometheus, the de facto standard monitoring system for Kubernetes, was invented 2012 in Berlin by a company named Soundcloud? Soundcloud was (or is still) a music streaming service, which required a scalable monitoring system wide before Kubernetes was born. Luckily enough the software goes Open Source 2015 and was CNCF graduated one year later. Soundcloud was not so sucessul, so many people have to left the company and landed at Polarsignals, also located in Berlin, or moved on to Grafana Labs, a world-wide operating company with nearly 1000 employees. And many of them joined us today.
+Did you know? Prometheus, the de facto standard monitoring system for Kubernetes, was invented 2012 in Berlin by a company named Soundcloud? Soundcloud was (or is still) a music streaming service, which required a scalable monitoring system wide before Kubernetes was born. Luckily enough the software goes Open Source 2015 and was CNCF graduated one year later. Soundcloud was not so successful, so many people have to left the company and landed at Polarsignals, also located in Berlin, or moved on to Grafana Labs, a world-wide operating company with nearly 1000 employees. And many of them joined us today.
 
 <img src="/images/promcon/promcon17.jpg" width="925" height="525"/>
 
-These and other facts was presented as kickoff by Matthias Loibl ([@metalmatze](github.com/metalmatze)). We are at [Radialsystem](https://www.radialsystem.de), a formely pump station in the middle of Berlin (Germany) directly on the river Spree. The weather couldn't be better for this 2-days-CNCF event: PromCon EU 2023. Sunny, nearly 25 degrees, and it's the end of September. 
+These and other facts was presented as kickoff by Matthias Loibl ([@metalmatze](github.com/metalmatze)). We are at [Radialsystem](https://www.radialsystem.de), a formerly pump station in the middle of Berlin (Germany) directly on the river Spree. The weather couldn't be better for this 2-days-CNCF event: PromCon EU 2023. Sunny, nearly 25 degrees, and it's the end of September. 
 # Venue
 
 The venue was divided in a theatre for the conference track, a second hall for taking food and conversation, and additionaly and outside area to take seat on a comfortable chair with view to the Spree. 
@@ -40,7 +40,7 @@ Head-lighted features since last KubeCon:
 - Java Client 1.0.0
 - New Notifiers in Alertmanager like Discord, Webex, and MS Teams
 
-Community work was presented at [https://prometheus.io/community](https://prometheus.io/community). Not to forget the Dev Summit, which was held a day after the PromCon on Saturday in Berlin. There is a live agenda on [Google Docs](https://docs.google.com/document/d/11LC3wJcVk00l8w5P3oLQ-m3Y37iom6INAMEu2ZAGIIE/) full packed with links and informations. Beside the in-person event, where also guests are welcomed, a live stream on Google Meet was also available.
+Community work was presented at [https://prometheus.io/community](https://prometheus.io/community). Not to forget the Dev Summit, which was held a day after the PromCon on Saturday in Berlin. There is a live agenda on [Google Docs](https://docs.google.com/document/d/11LC3wJcVk00l8w5P3oLQ-m3Y37iom6INAMEu2ZAGIIE/) full packed with links and information. Beside the in-person event, where also guests are welcomed, a live stream on Google Meet was also available.
 
 This comes to topic: what's next on Prometheus? Maybe a new Alertmanager UI will be helpful. Remote Write v2 will have more performance improvements.
 
@@ -52,7 +52,7 @@ Not really breakout because we are still in the theatre. There is nothing to mov
 
 ## Open Telemetry
 
-One of the biggest thing in the future will be the change to Open Telemetry Standard. Goutham Veeramachaneni and Jesus Vasquezfrom Grafana Labs drawed attention on it and made a comparison.
+One of the biggest thing in the future will be the change to Open Telemetry Standard. Goutham Veeramachaneni and Jesus Vasquez from Grafana Labs turned attention on it and made a comparison.
 
 ## Beyla
 
@@ -78,7 +78,7 @@ By David Calvert, best session so far. Every Prometheus user is overwhelmed with
 
 <img src="/images/promcon/promcon8.jpg" width="925" height="525"/>
 
-I was impressed, [Shopify](https://github.com/shopify) has nearly thousand public repos on Github, a brave Open Source company. What we've got to see from Sebastian Rabenhorst and Mikołaj Liberski were some high-level global architecture picture from the Shopify Operations, but it didn't quite fit the frame of the audience. PromCon is a conference for really tech. No marketing talks, no ads. I didn't catched the story of this session, while the real technical background remained hidden for confidentiality reasons or whatever.
+I was impressed, [Shopify](https://github.com/shopify) has nearly thousand public repos on Github, a brave Open Source company. What we've got to see from Sebastian Rabenhorst and Mikołaj Liberski were some high-level global architecture picture from the Shopify Operations, but it didn't quite fit the frame of the audience. PromCon is a conference for really tech. No marketing talks, no ads. I didn't catch the story of this session, while the real technical background remained hidden for confidentiality reasons or whatever.
 
 <img src="/images/promcon/promcon9.jpg" width="925" height="525"/>
 
@@ -121,7 +121,7 @@ After the lunch of the second day it comes to a point where we got to much metri
 
 <img src="/images/promcon/promcon24.jpg" width="925" height="525"/>
 
-Brendan O'Handley and Catherine Gui from Grafana Labs draw attention to Prometheus users on beginners level. How to find rigth metrics of which metrics are present in general? For this the Grafana Metrics Explorer will help with a simple menue and overview. 
+Brendan O'Handley and Catherine Gui from Grafana Labs draw attention to Prometheus users on beginners level. How to find right metrics of which metrics are present in general? For this the Grafana Metrics Explorer will help with a simple menu and overview. 
 
 <img src="/images/promcon/promcon26.jpg" width="925" height="525"/>
 
@@ -134,10 +134,3 @@ Ankur Rawal and Dheeraj Reddy from Zenduty presented some really nice examples o
 And that was the PromCon 2023 in Berlin. See you next year at PromCon 2024 in Berlin!
 
 <img src="/images/promcon/promcon28.jpg" width="925" height="525"/>
-
-
-
-
-
-
-

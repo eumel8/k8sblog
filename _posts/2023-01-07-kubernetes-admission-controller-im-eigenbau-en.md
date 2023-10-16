@@ -14,12 +14,12 @@ New Year, new project, just saying. But it started at the end of the last, and i
 # Docker container like that
 The usage of Docker container in Kubernetes is a known requirement also when [dockerd](https://docker.io) is replaced by
 [containerd](https://containerd.io/). 
-The workflow is etablished: There is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) with a definition
+The workflow is established: There is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) with a definition
 to a base image or we start `From: scratch` and bring the program logic into and installing packages.
 
 The problem is, at the end there is no knowledge what's in the Docker container if you don't build them by yourself.
 The problem has meanwhile a name: Supply Chain Attack. It's not clear, which features the container has and which
-backdoors are built in.
+backdoor are built in.
 
 Practical example: [https://hub.docker.com/r/gnuu/busybox](https://hub.docker.com/r/gnuu/busybox) - a container from
 our [Gnuu](https://www.gnuu.de) project, which we downloaded around 100 times. Docker Hub shows a download rate over

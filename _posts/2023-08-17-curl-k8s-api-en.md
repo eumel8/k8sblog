@@ -11,7 +11,7 @@ author: eumel8
 
 Shortly came the question: How to call Kubernetes-API with curl? The Kubernetes documentation has an howto with kubectl proxy, with an external provides authentication. But there is also an innerCluster communication, the way from the Pod in the cluster to the Kubernetes-API.
 
-For this are tokens automatically mounted in each Pod with a default ServiceAccount in the namespace. This feature can be disabled in the cluster, but neverteheless, this account has no permissions. We must provide a Role and connect with a RoleBinding this to a ServiceAccount, which we ensurly created at the same time. This runs on a StatefulSet with an image, which contains curl, of course, and a shell and jq for parsing Json outputs.
+For this are tokens automatically mounted in each Pod with a default ServiceAccount in the namespace. This feature can be disabled in the cluster, but nevertheless, this account has no permissions. We must provide a Role and connect with a RoleBinding this to a ServiceAccount, which we ensure created at the same time. This runs on a StatefulSet with an image, which contains curl, of course, and a shell and jq for parsing Json outputs.
 
 Manifest:
 

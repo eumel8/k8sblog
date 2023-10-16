@@ -11,7 +11,7 @@ author: eumel8
 
 # Intro
 
-Rancher provides an application named "Logging" in ther app store. 
+Rancher provides an application named "Logging" in their app store. 
 
 "Collects and filter logs using highly configurable CRDs. Powered by Banzai Cloud."
 
@@ -75,7 +75,7 @@ Within Helm 3 there are still no option to upgrade CRDs. The full story is descr
 
 ## Delete/Re-Create
 
-A deinstallation of rancher-logging and rancher-logging-crd chart will automatically remove the CRDs and all depend custom resources. Be careful, for example in rancher-monitoring-crd are jobs implemented with `annotations."helm.sh/hook": pre-delete`, which deletes all CRDs if the crd chart will deleted. Best case to make a backup of all custom resources, before start here:
+A de-installation of rancher-logging and rancher-logging-crd chart will automatically remove the CRDs and all depend custom resources. Be careful, for example in rancher-monitoring-crd are jobs implemented with `annotations."helm.sh/hook": pre-delete`, which deletes all CRDs if the crd chart will deleted. Best case to make a backup of all custom resources, before start here:
 
 ```bash
 % for i in `kubectl api-resources --api-group='logging.banzaicloud.io' -o name`; do kubectl get $i -A -o yaml > $i.yaml;done
@@ -120,7 +120,7 @@ Continue here to choose the logging-operator app in app store:
 
 <img src="/images/rancher-logging-9.png" width="850" height="475" />
 
-As ususally you can choose the target namespace and give them a name.
+As usually you can choose the target namespace and give them a name.
 
 Activate `Customize Helm options before start`:
 
