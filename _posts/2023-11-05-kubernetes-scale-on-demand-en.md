@@ -13,7 +13,7 @@ author: eumel8
 Climate change is on everyone's lips. Meanwhile, the world's data centers are happily humming and humming along. We will address the topic of sustainable computing in the next article. First of all, this is about scaling on demand, so our workload in the Kubernetes cluster is scaled as needed using the [Horizontal Pod Autoscaler](https://kubernetes.io/de/docs/tasks/run-application/horizontal-pod -autoscale/) from 1 to infinity.
 But what if that 0 to infinity were possible?
 
-#Keda
+# Keda
 [Keda](https://keda.sh) - Kubernetes Event Driven Autoscaling. A pithy term and just as brilliant. I installed my workload in the cluster and scaled the deployment to 0. Everything is “ready to go”. The go then comes from an event, old school would now be a cron job that scales the workload up at 8 a.m. and down again at 6 p.m. Anyway. But what would be the scenario of a service that is rarely used, such as a website that someone only visits once in a while, like this one? Okay, let's ignore all the spam and bots, we can worry about those later. Maybe one or two visitors come by here during the day. And for them we open our store by starting a pod after the first request in the browser, which houses an Nginx web server, which then delivers this content here and shows it to the visitor in the browser with a short delay. When the page is loaded, Keda waits a while and scales the deployment back to 0. So we save computer resources and electricity and thus protect the environment.
 
 # Preparation
@@ -72,7 +72,7 @@ Between Ingress and Service there is the Intereceptor through which we have to p
 ```bash
 cat <<EOF | kubectl -n demoapp apply -f -
 apiVersion: v1
-child: Service
+kind: Service
 metadata:
    name: relink
 spec:
@@ -87,7 +87,7 @@ The Ingress now has `relink` as backend:
 ```bash
 cat <<EOF | kubectl -n demoapp apply -f -
 apiVersion: networking.k8s.io/v1
-child: Ingress
+kind: Ingress
 metadata:
    name: demoapp
 spec:
