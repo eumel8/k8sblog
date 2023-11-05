@@ -63,7 +63,7 @@ kubectl -n demoapp apply -f https://raw.githubusercontent.com/mcsps/use-cases/ma
 
 Jetzt bräuchten wir nur noch einen Ingress und unsere App wäre von der Welt erreichbar. Aber schauen wir uns nochmal das Keda Architekturbild an:
 
-![architecture diagram](https://raw.githubusercontent.com/kedacore/http-add-on/main/docs/images/arch.png)
+<img src="https://raw.githubusercontent.com/kedacore/http-add-on/main/docs/images/arch.png" width="925" height="525"/>
 
 Zwischen Ingress und Service gibt es den Interceptor, durch den wir den Verkehr schleusen müssen. Unser Schleuser heisst `relink` und wird mit im demoapp Namespace deployt:
 
