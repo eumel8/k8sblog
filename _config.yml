@@ -5,6 +5,7 @@ baseurl: ""
 url: "https://k8sblog.eumel.de"
 twitter_username: eumel_8
 github_username: eumel8
+linkedin_username: eumel
 
 markdown: kramdown
 paginate:           5
