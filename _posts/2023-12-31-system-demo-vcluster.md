@@ -267,6 +267,7 @@ default                Active   12h
 kube-system            Active   12h
 kube-public            Active   12h
 kube-node-lease        Active   12h
+```
 
 # Kubernetes Dashboard
 
