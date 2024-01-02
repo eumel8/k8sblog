@@ -503,6 +503,11 @@ spec:
     pilot:
       autoscaleEnabled: false
       image: pilot
+      k8s:
+        securityContext:
+          fsGroup: 2000
+          supplementalGroups:
+            - 2000
     telemetry:
       enabled: false
 EOF
@@ -534,7 +539,7 @@ spec:
       enabled: false
     pilot:
       enabled: true
-  hub: docker.io/istio
+  hub: mtr.devops.telekom.de/istio
   meshConfig:
     defaultConfig:
       proxyMetadata: {}
