@@ -271,16 +271,16 @@ kube-node-lease        Active   12h
 
 # Kubernetes Dashboard
 
-Als Beifang können wir uns an dieser Stelle das [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) installieren. Eine lauffähige Version befindet sich [hier](https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/684fce8e09f78d537ac05e2f229010dc608f8128/dashboard.yaml).
+Als Beifang können wir uns an dieser Stelle das [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) installieren. Eine lauffähige Version befindet sich [hier](https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/bbdb47868ac077a60eaecd6ec75224ee2bc8c6e8/dashboard.yaml).
 
 Zur Installation können wir jetzt unsere neue KUBECONFIG Datei benutzen:
 
 ```bash
 ecport KUBECONFIG=/tmp/vc-config 
 kubectl config use-context vc2
-kubectl apply -f https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/684fce8e09f78d537ac05e2f229010dc608f8128/dashboard.yaml
+kubectl apply -f https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/bbdb47868ac077a60eaecd6ec75224ee2bc8c6e8/dashboard.yaml
 kubectl config use-context vc1
-kubectl apply -f https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/684fce8e09f78d537ac05e2f229010dc608f8128/dashboard.yaml
+kubectl apply -f https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/bbdb47868ac077a60eaecd6ec75224ee2bc8c6e8/dashboard.yaml
 ```
 
 Das Kubernetes Dashboard bietet leider keine Two-Factor-Auth oder ein anderes zentral externes Authentifizierunssystem an.
@@ -358,9 +358,9 @@ kubectl create namespace istio-system
 Anlegen von Serverzertifikaten von einer Demo-CA:
 
 ```bash
-make -f istio//tools/certs/Makefile.selfsigned.mk root-ca
-make -f istio//tools/certs/Makefile.selfsigned.mk vc1-cacerts
-make -f istio//tools/certs/Makefile.selfsigned.mk vc2-cacerts
+make -f istio/tools/certs/Makefile.selfsigned.mk root-ca
+make -f istio/tools/certs/Makefile.selfsigned.mk vc1-cacerts
+make -f istio/tools/certs/Makefile.selfsigned.mk vc2-cacerts
 
 kubectl config use-context vc1
 kubectl -n istio-system create secret generic cacerts --from-file=vc1/ca-cert.pem --from-file=vc1/ca-key.pem --from-file=vc1/cert-chain.pem --from-file=vc1/root-cert.pem
@@ -405,7 +405,7 @@ spec:
       enabled: false
     pilot:
       enabled: true
-  hub: docker.io/istio
+  hub: mtr.devops.telekom.de/istio
   meshConfig:
     defaultConfig:
       proxyMetadata: {}
