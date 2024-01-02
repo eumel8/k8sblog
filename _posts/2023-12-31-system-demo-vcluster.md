@@ -19,8 +19,8 @@ Für die Installation steht uns ein von Rancher verwalteter Kubernetes Cluster z
 Die Installation ist denkbar einfach und sollte ohne jegliche Änderung der Default-Values funktionieren. Wir deaktivieren in der Demo aber die NetworkPolicy Isolation und setzen einen extra TLS-SAN, damit das Vcluster-Zertifikat für unseren späteren externen Endpunkt gültig ist. Diese Option brauchen wir auch nur bei Traefik-Ingress-Controller, bei Ingress-Aktivierung im Helm-Chart wird diese automatisch gesetzt (siehe nächstes Kapitel):
 
 ```bash
-helm -n vc1 upgrade -i vc1 --set isolation.networkPolicy.enabled=false --set syncer.extraArgs={--tls-san=vc1.otc.mcsps.de} --version 0.15.7 oci://mtr.devops.telekom.de/caas/charts/vcluster
-helm -n vc2 upgrade -i vc2 --set isolation.networkPolicy.enabled=false --set syncer.extraArgs={--tls-san=vc2.otc.mcsps.de} --version 0.15.7 oci://mtr.devops.telekom.de/caas/charts/vcluster
+helm -n vc1 upgrade -i vc1 --set isolation.networkPolicy.enabled=false --set syncer.extraArgs={--tls-san=vc1.otc.mcsps.de} --version v0.15.7 oci://mtr.devops.telekom.de/caas/charts/vcluster
+helm -n vc2 upgrade -i vc2 --set isolation.networkPolicy.enabled=false --set syncer.extraArgs={--tls-san=vc2.otc.mcsps.de} --version v0.15.7 oci://mtr.devops.telekom.de/caas/charts/vcluster
 ```
 
 Kontrolle:
@@ -30,13 +30,13 @@ vcluster -n vc1 list
 
   NAME | CLUSTER | NAMESPACE | STATUS  | VERSION | CONNECTED |            CREATED            |    AGE     | DISTRO
 -------+---------+-----------+---------+---------+-----------+-------------------------------+------------+---------
-  vc1  | local   | vc1       | Running | 0.15.7  |           | 2023-12-21 17:09:16 +0100 CET | 201h30m22s | OSS
+  vc1  | local   | vc1       | Running | v0.15.7 |           | 2023-12-21 17:09:16 +0100 CET | 201h30m22s | OSS
 
 vcluster -n vc2 list
 
   NAME | CLUSTER | NAMESPACE | STATUS  | VERSION | CONNECTED |            CREATED            |    AGE     | DISTRO
 -------+---------+-----------+---------+---------+-----------+-------------------------------+------------+---------
-  vc2  | local   | vc2       | Running | 0.15.7  |           | 2023-12-21 17:09:16 +0100 CET | 201h30m22s | OSS
+  vc2  | local   | vc2       | Running | v0.15.7 |           | 2023-12-21 17:09:16 +0100 CET | 201h30m22s | OSS
 ```
 
 Um den Vcluster zu erreichen, kann man mit `vcluster connect` entweder kubectl aufrufen oder mit bash einen Kommandoprompt ausführen, um dann von dort mit kubectl/helm weiter zu arbeiten.
@@ -88,8 +88,8 @@ EOF
 Beim Nginx Ingress Controller, aktivieren wir das Feature bei der Vcluster Installation:
 
 ```bash
-helm -n vc1 upgrade -i vc1 --set isolation.networkPolicy.enabled=false --set ingress.enabled=true --set ingress.host=vc1.otc.mcsps.de --set ingress.annotation="nginx.ingress.kubernetes.io/ssl-passthrough=true" --set ingress.annotation="nginx.ingress.kubernetes.io/backend-protocol=HTTPS" --version 0.15.7  oci://mtr.devops.telekom.de/caas/charts/vcluster
-helm -n vc2 upgrade -i vc2 --set isolation.networkPolicy.enabled=false --set ingress.enabled=true --set ingress.host=vc2.otc.mcsps.de --set ingress.annotation="nginx.ingress.kubernetes.io/ssl-passthrough=true" --set ingress.annotation="nginx.ingress.kubernetes.io/backend-protocol=HTTPS" --version 0.15.7  oci://mtr.devops.telekom.de/caas/charts/vcluster
+helm -n vc1 upgrade -i vc1 --set isolation.networkPolicy.enabled=false --set ingress.enabled=true --set ingress.host=vc1.otc.mcsps.de --set ingress.annotation="nginx.ingress.kubernetes.io/ssl-passthrough=true" --set ingress.annotation="nginx.ingress.kubernetes.io/backend-protocol=HTTPS" --version v0.15.7  oci://mtr.devops.telekom.de/caas/charts/vcluster
+helm -n vc2 upgrade -i vc2 --set isolation.networkPolicy.enabled=false --set ingress.enabled=true --set ingress.host=vc2.otc.mcsps.de --set ingress.annotation="nginx.ingress.kubernetes.io/ssl-passthrough=true" --set ingress.annotation="nginx.ingress.kubernetes.io/backend-protocol=HTTPS" --version v0.15.7  oci://mtr.devops.telekom.de/caas/charts/vcluster
 ```
 
 Jetzt brauchen wir noch einen Benutzer mit Cluster-Admin-Rechten.
