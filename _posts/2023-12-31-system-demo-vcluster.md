@@ -401,10 +401,24 @@ spec:
     ingressGateways:
     - enabled: true
       name: istio-ingressgateway
+      k8s:
+        securityContext:
+          fsGroup: 2000
+          runAsGroup: 2000
+          runAsUser: 2000
+          supplementalGroups:
+            - 2000
     istiodRemote:
       enabled: false
     pilot:
       enabled: true
+      k8s:
+        securityContext:
+          fsGroup: 2000
+          runAsGroup: 2000
+          runAsUser: 2000
+          supplementalGroups:
+            - 2000
   hub: mtr.devops.telekom.de/istio
   meshConfig:
     defaultConfig:
@@ -503,11 +517,6 @@ spec:
     pilot:
       autoscaleEnabled: false
       image: pilot
-      k8s:
-        securityContext:
-          fsGroup: 2000
-          supplementalGroups:
-            - 2000
     telemetry:
       enabled: false
 EOF
@@ -535,10 +544,24 @@ spec:
     ingressGateways:
     - enabled: true
       name: istio-ingressgateway
+      k8s:
+        securityContext:
+          fsGroup: 2000
+          runAsGroup: 2000
+          runAsUser: 2000
+          supplementalGroups:
+            - 2000
     istiodRemote:
       enabled: false
     pilot:
       enabled: true
+      k8s:
+        securityContext:
+          fsGroup: 2000
+          runAsGroup: 2000
+          runAsUser: 2000
+          supplementalGroups:
+            - 2000
   hub: mtr.devops.telekom.de/istio
   meshConfig:
     defaultConfig:
