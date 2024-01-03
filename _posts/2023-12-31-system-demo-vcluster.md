@@ -39,6 +39,48 @@ vcluster -n vc2 list
   vc2  | local   | vc2       | Running | v0.15.7 |           | 2023-12-21 17:09:16 +0100 CET | 201h30m22s | OSS
 ```
 
+Standardmässig kann Netzwerkverkehr verboten sein. Dieser muss mit NetworkPolicies explizit freigeschalten werden. Hier eine In/Out any/any Rule für die  Demo.
+
+vc1: 
+
+```bash
+cat <<EOF | kubectl -n vc1 apply -f -
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np-vc-allow-all
+spec:
+  egress:
+  - {}
+  ingress:
+  - {}
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+EOF
+```
+
+vc2: 
+
+```bash
+cat <<EOF | kubectl -n vc2 apply -f -
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np-vc-allow-all
+spec:
+  egress:
+  - {}
+  ingress:
+  - {}
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+EOF
+```
+
 Um den Vcluster zu erreichen, kann man mit `vcluster connect` entweder kubectl aufrufen oder mit bash einen Kommandoprompt ausführen, um dann von dort mit kubectl/helm weiter zu arbeiten.
 
 # Vcluster KubeAPI Zugriff
@@ -269,6 +311,322 @@ kube-public            Active   12h
 kube-node-lease        Active   12h
 ```
 
+Wenn wir nicht alle Kommandozeilenwerkzeuge parat haben oder uns Netzwerkverbindung zum Ingres fehlt, können wir uns auch einen POD als Arbeitsumgebung installieren:
+
+<details>
+
+
+```bash
+cat <<EOF > vcluster-client.yaml
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc1
+spec:
+  serviceName: vc-client
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: vc-client
+  template:
+    metadata:
+      labels:
+        app: vc-client
+    spec:
+      containers:
+      - image: mtr.devops.telekom.de/caas/k8s-tools:latest
+        imagePullPolicy: Always
+        command: ['sh', '-c']
+        args: ["tail -f /dev/null"]
+        name: vc-client
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsUser: 1000
+          runAsGroup: 1000
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: workdir
+          mountPath: /home/appuser
+        - name: tmp
+          mountPath: /tmp
+      dnsPolicy: ClusterFirst
+      hostNetwork: false
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 1000
+        supplementalGroups:
+        - 1000
+      terminationGracePeriodSeconds: 3
+      serviceAccountName: vc-client
+      volumes:
+      - name: workdir
+        emptyDir: {}
+      - name: tmp
+        emptyDir:
+          medium: Memory
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc1
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc2
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: caas-project-owner
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc3
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: caas-project-owner
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc4
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: caas-project-owner
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+  name: np-vc-client
+  namespace: vc1
+spec:
+  egress:
+  - {}
+  podSelector:
+    matchLabels:
+      app: vc-client
+  policyTypes:
+  - Egress
+A11873341@T000be20e6 istio % 
+A11873341@T000be20e6 istio % cat vcluster-client.yaml              
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc1
+spec:
+  serviceName: vc-client
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: vc-client
+  template:
+    metadata:
+      labels:
+        app: vc-client
+    spec:
+      containers:
+      - image: mtr.devops.telekom.de/caas/k8s-tools:latest
+        imagePullPolicy: Always
+        command: ['sh', '-c']
+        args: ["tail -f /dev/null"]
+        name: vc-client
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsUser: 1000
+          runAsGroup: 1000
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: workdir
+          mountPath: /home/appuser
+        - name: tmp
+          mountPath: /tmp
+      dnsPolicy: ClusterFirst
+      hostNetwork: false
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 1000
+        supplementalGroups:
+        - 1000
+      terminationGracePeriodSeconds: 3
+      serviceAccountName: vc-client
+      volumes:
+      - name: workdir
+        emptyDir: {}
+      - name: tmp
+        emptyDir:
+          medium: Memory
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc1
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc2
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: caas-project-owner
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc3
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: caas-project-owner
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: vc-client
+  name: vc-client
+  namespace: vc4
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: caas-project-owner
+subjects:
+  - kind: ServiceAccount
+    name: vc-client
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+  name: np-vc-client
+  namespace: vc1
+spec:
+  egress:
+  - {}
+  podSelector:
+    matchLabels:
+      app: vc-client
+  policyTypes:
+  - Egress
+```
+</details>
+
+Dieser Client läuft im Namespace vc1 und hat Zugriffsrechte auf die Namespace vc1 und vc2
+
+
+```bash
+kubectl apply -f vcluster-client.yaml
+kubectl -n vc1 cp /tmp/vc-config vc-client-0:/tmp/vc-config
+```
+
 # Kubernetes Dashboard
 
 Als Beifang können wir uns an dieser Stelle das [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) installieren. Eine lauffähige Version befindet sich [hier](https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/bbdb47868ac077a60eaecd6ec75224ee2bc8c6e8/dashboard.yaml).
@@ -276,7 +634,7 @@ Als Beifang können wir uns an dieser Stelle das [Kubernetes Dashboard](https://
 Zur Installation können wir jetzt unsere neue KUBECONFIG Datei benutzen:
 
 ```bash
-ecport KUBECONFIG=/tmp/vc-config 
+export KUBECONFIG=/tmp/vc-config 
 kubectl config use-context vc2
 kubectl apply -f https://gist.githubusercontent.com/eumel8/0f6d0bc19a25376ff541344e601a1d65/raw/bbdb47868ac077a60eaecd6ec75224ee2bc8c6e8/dashboard.yaml
 kubectl config use-context vc1
@@ -672,7 +1030,28 @@ kubectl -n istio-system logs -l app=istiod -f
 kubectl -n istio-system logs -l app=istio-ingressgateway -f
 ```
 
-Weitere Funktionstest vom Multi-Service-Mesh mit der Istio-Demo-App
+Weitere Funktionstest vom Multi-Service-Mesh mit der Istio-Demo-App. Bis zu dieser Stelle kommen wir ohne Root-Zugriff oder erweiterten Schreibrechten bei der Installation aus. Jetzt möchte Istio aber den Netzwerkverkehr von Applikationen umleiten. Das macht er mit `istio-iptables`, ein Wrapper für `iptables`. Das läuft entweder als root im Injection-Sidecar der Apps oder als CNI-Plugin mit HostPath.
+Für ersteres sind folgende securitySettings notwendig:
+
+```yaml
+      allowPrivilegeEscalation: false                
+      capabilities:                                  
+        add:                                                 
+        - NET_ADMIN                                         
+        - NET_RAW                                    
+        drop:                                        
+        - ALL                                        
+      privileged: false                                                                                                                                 
+      readOnlyRootFilesystem: false                                               
+      runAsGroup: 0                      
+      runAsNonRoot: false               
+      runAsUser: 0 
+```
+
+Diese werden durch Templates aus der Configmap `istio-sidecar-injector` im istio-system Namespace gezogen. Es lohnt sich aber nicht, diese anzupassen. Es sind wirklich die minimalsten Rechte.
+
+Wenn man Gatekeeper verwendet, kann man die Ausname mit `exempt_images: - mtr.devops.telekom.de/istio/proxyv2:1.20.1` auf die Constraints Capabilities, AllowedUsers und ReadOnlyRootFilesystem einschränken. Das heisst, Container nur mit diesem Image, welches man unter Kontrolle hat, darf diese 3 Sicherheitsregeln brechen. Das Image hat auch das `istio-iptables` Kommando geladen und wirkt sich, ohne HostNetwork nur auf den Netzwerkbereich des Pods aus. Trotzdem wird das verbleibende Sicherheitsrisiko hier erwähnt.
+
 
 # Helloworld v1/v2
 
