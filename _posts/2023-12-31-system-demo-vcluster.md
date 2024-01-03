@@ -315,7 +315,6 @@ Wenn wir nicht alle Kommandozeilenwerkzeuge parat haben oder uns Netzwerkverbind
 
 <details>
 
-
 ```bash
 cat <<EOF > vcluster-client.yaml
 ---
@@ -617,6 +616,7 @@ spec:
   policyTypes:
   - Egress
 ```
+
 </details>
 
 Dieser Client läuft im Namespace vc1 und hat Zugriffsrechte auf die Namespace vc1 und vc2
