@@ -365,7 +365,7 @@ make -f istio/tools/certs/Makefile.selfsigned.mk vc2-cacerts
 kubectl config use-context vc1
 kubectl -n istio-system create secret generic cacerts --from-file=vc1/ca-cert.pem --from-file=vc1/ca-key.pem --from-file=vc1/cert-chain.pem --from-file=vc1/root-cert.pem
 kubectl config use-context vc2
-kubectl -n istio-system create secret generic cacerts --from-file=vc2/ca-cert.pem --from-file=vc2/ca-key.pem --from-file=vc1/cert-chain.pem --from-file=vc2/root-cert.pem
+kubectl -n istio-system create secret generic cacerts --from-file=vc2/ca-cert.pem --from-file=vc2/ca-key.pem --from-file=vc2/cert-chain.pem --from-file=vc2/root-cert.pem
 
 ```
 
