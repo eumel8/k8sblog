@@ -13,6 +13,8 @@ author: eumel8
 Vcluster ist eine Technologie, um virtuelle Kubernetes Cluster im Kubernetes Cluster abzubilden. Was sind die Vorteile?
 Hier ein Beispiel eines Istio Service Mesh mit zwei Vcluster-Instanzen in einem Kubernetes Cluster.
 
+<img src="/images/systemdemo-vcluster.png"/>
+
 # Vcluster Installation
 Für die Installation steht uns ein von Rancher verwalteter Kubernetes Cluster zur Verfügung. Wir haben ein Projekt angelegt und im Projekt zwei Namespaces für zwei Vcluster. Wir brauchen als Werkzeuge Helm CLI, kubectl, openssl, istioctl, make.
 
