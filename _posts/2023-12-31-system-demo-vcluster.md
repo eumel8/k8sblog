@@ -16,7 +16,7 @@ Hier ein Beispiel eines Istio Service Mesh mit zwei Vcluster-Instanzen in einem 
 <img src="/images/systemdemo-vcluster.png"/>
 
 # Vcluster Installation
-Für die Installation steht uns ein von Rancher verwalteter Kubernetes Cluster zur Verfügung. Wir haben ein Projekt angelegt und im Projekt zwei Namespaces für zwei Vcluster. Wir brauchen als Werkzeuge Helm CLI, kubectl, openssl, istioctl, make.
+Für die Installation steht uns ein von Rancher verwalteter Kubernetes Cluster zur Verfügung. Wir haben ein Projekt angelegt und im Projekt zwei Namespaces für zwei Vcluster. Wir brauchen als Werkzeuge Helm CLI, vcluster, kubectl, openssl, istioctl, make.
 
 Die Installation ist denkbar einfach und sollte ohne jegliche Änderung der Default-Values funktionieren. Wir deaktivieren in der Demo aber die NetworkPolicy Isolation und setzen einen extra TLS-SAN, damit das Vcluster-Zertifikat für unseren späteren externen Endpunkt gültig ist. Diese Option brauchen wir auch nur bei Traefik-Ingress-Controller, bei Ingress-Aktivierung im Helm-Chart wird diese automatisch gesetzt (siehe nächstes Kapitel):
 
