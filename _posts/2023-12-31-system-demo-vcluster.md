@@ -311,7 +311,6 @@ kube-node-lease        Active   12h
 
 Wenn wir nicht alle Kommandozeilenwerkzeuge parat haben oder uns Netzwerkverbindung zum Ingres fehlt, können wir uns auch einen POD als Arbeitsumgebung installieren:
 
-<details>
 
 ```bash
 cat <<EOF > vcluster-client.yaml
@@ -465,8 +464,6 @@ spec:
   - Egress
 EOF
 ```
-
-</details>
 
 Dieser Client läuft im Namespace vc1 und hat Zugriffsrechte auf die Namespace vc1 und vc2
 
