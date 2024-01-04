@@ -398,7 +398,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: caas-project-owner
 subjects:
   - kind: ServiceAccount
     name: vc-client
