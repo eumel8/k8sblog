@@ -398,7 +398,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: caas-project-owner
+  name: admin
 subjects:
   - kind: ServiceAccount
     name: vc-client
@@ -413,37 +413,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: caas-project-owner
-subjects:
-  - kind: ServiceAccount
-    name: vc-client
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  labels:
-    app: vc-client
-  name: vc-client
-  namespace: vc3
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: caas-project-owner
-subjects:
-  - kind: ServiceAccount
-    name: vc-client
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  labels:
-    app: vc-client
-  name: vc-client
-  namespace: vc4
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: caas-project-owner
+  name: admin
 subjects:
   - kind: ServiceAccount
     name: vc-client
@@ -517,7 +487,6 @@ spec:
 EOF
 ```
 
-# Istio Installation
 ```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: traefik.containo.us/v1alpha1
@@ -537,7 +506,6 @@ spec:
     passthrough: true
 EOF
 ```
-
 
 # Istio Installation
 
