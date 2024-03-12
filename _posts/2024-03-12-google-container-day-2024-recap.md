@@ -5,7 +5,7 @@ title: Google Container Day 2024 Recap
 subtitle: Berlin, Tucholskystrasse
 date: 2024-03-12
 background: '/images/k8s-cosmos.png'
-twitter: 'images/k8s-blog2.png'
+twitter: 'images/google-container-day-2024/gcd1.png'
 author: eumel8
 ---
 
