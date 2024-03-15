@@ -11,7 +11,7 @@ author: eumel8
 
 <img src="/images/google-container-day-2024/gcd1.png"/>
 
-# What is Google Container Days?
+# What is Google Container Day?
 
 <img src="/images/google-container-day-2024/gcd2.png"/>
 <img src="/images/google-container-day-2024/gcd3.png"/>
