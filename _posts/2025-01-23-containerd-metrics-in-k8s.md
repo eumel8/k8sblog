@@ -19,7 +19,7 @@ Heute wollen wir uns wieder mal mit Monitoring beschäftigen. Bei Kubernetes int
 
 `container_cpu_usage_seconds_total`
 
-Eine `scrape_config` sieht im Prometheus etwa so aus:
+Eine [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) sieht im Prometheus etwa so aus:
 
 ```
       - job_name: 'kubernetes-nodes-cadvisor'
@@ -81,6 +81,7 @@ Wenn man grosszügig ist, ersetzt man `127.0.0.1` durch `0.0.0.0` und schon laus
 Wir bräuchten dann nur noch ein `daemonset` um einen Pod auf allen Nodes zu starten, der uns durch einen Proxy Zugang zu diesen Port gewährt:
 
 <details>
+{% highlight yaml %}
 ```yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -170,6 +171,7 @@ data:
         }
     }
 ```
+{% endhighlight %}
 </details>
 
 Ist natürlich ein Denkfehler. Wir sind auf dem Localhost des Pods und nicht des Hosts, auch mit `hostNetwork`
@@ -177,6 +179,7 @@ Ist natürlich ein Denkfehler. Wir sind auf dem Localhost des Pods und nicht des
 Wir brauch also schon etwas, was den Verkehr vom Pod-Network auf den Host weiterleitet. Das geht mit [Socat](https://packages.debian.org/de/sid/socat):
 
 <details>
+{% highlight yaml %}
 ```yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -254,6 +257,7 @@ spec:
       targetPort: 8080
   type: ClusterIP
 ```
+{% endhighlight %}
 </details>
 
 Voila, auf Port 8080 haben wir die versionierten Container Metriken und können die mit einer `scrape_config` abholen.
