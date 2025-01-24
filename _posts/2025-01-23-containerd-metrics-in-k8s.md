@@ -258,6 +258,25 @@ spec:
 
 Voila, auf Port 8080 haben wir die versionierten Container Metriken und können die mit einer `scrape_config` abholen.
 
+```yaml
+      - job_name: 'containerd-metrics-proxy'
+        kubernetes_sd_configs:
+          - role: endpoints
+            namespaces:
+              names:
+                - kube-system
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_service_name]
+            separator: ;
+            regex: metrics-proxy
+            replacement: $1
+            action: keep
+          - source_labels: [__meta_kubernetes_service_name]
+            target_label: job
+          - source_labels: [__meta_kubernetes_endpoint_port_name]
+            target_label: port
+        metrics_path: /v1/metrics
+```
 
 
 Übrigens: Alle verwendeten Container Images gibt es auf [https://github.com/mcsps/docker-images](https://github.com/mcsps/docker-images).
