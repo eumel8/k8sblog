@@ -21,7 +21,7 @@ helm install --name coredns --namespace=kube-system stable/coredns
 
 Danach sollte wir folgenden Status haben:
 
-<pre>
+```
 NAMESPACE: kube-system
 STATUS: DEPLOYED
 
@@ -49,8 +49,7 @@ coredns-coredns-64c4958684-vxpc6  1/1    Running  0         28m
 ==> v1/Service
 NAME             TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)        AGE
 coredns-coredns  ClusterIP  10.43.212.227  none       53/UDP,53/TCP  13s
-
-</pre>
+```
 
 Das Helm Chart bietet in der Ausgabe noch eine Testmoeglichkeit an
 
@@ -116,9 +115,9 @@ Durch die Root-Zone "." werden Anfragen durch die Resolver in /etc/resolv.conf a
 
 Ansicht unserer ConfigMap:
 
-<code>kubectl edit cm coredns-coredns  -n kube-system </code>
+`kubectl edit cm coredns-coredns  -n kube-system`
 
-<pre> 
+```yaml
 ApiVersion: v1
 data:
   Corefile: |-
@@ -140,7 +139,7 @@ data:
   hello.world: |
     192.168.0.100    hallo.hello.world
 kind: ConfigMap
-</pre>
+```
 
 Unser CoreDNS Service IP muss als <ins>cluster_dns_server</ins> im Kubelet eingetragen sein. Erst dann nutzen interne Dienste unseren CoreDNS, der wiederum durch das <a href="https://coredns.io/plugins/kubernetes/">Kubernetes Plugin</a> die Namensaufloesung im Cluster verwaltet.
 
@@ -148,7 +147,7 @@ Um nun diesesn Dienst nach aussen in die Welt zu oeffnen, gaebe es verschiedene 
 
 Konfig Schnippsel:
 
-<pre>
+```yaml
 spec:
   clusterIP: 10.43.11.117
   externalIPs:
@@ -168,16 +167,18 @@ spec:
     k8s-app: coredns
   sessionAffinity: None
   type: LoadBalancer
-</pre>
+```
 
 Das waere jetzt mal ein Beispiel bei eine Cluster mit mehreren Nodes. Wenn ich nur einen habe, kann ich natuerlich nur eine IP eintragen.
 
 Leider hat die Sache jetzt einen kleinen Haken: DNS arbeitet sowohl mit UDP- als auch TCP-Protokoll. Jetzt koennte man annehmen, fuege einfach noch eine Port-Konfiguration fuer TCP hinzu. Aber mitnichten - das erlaubt Kubernetes mit Loadbalancer und nodePort nicht! Einfach aus dem Grund, weil es in der Cloud auch sonst keine UDP-Loadbalancer gibt. Fuer das Problem gibt es Workaround und neue Anforderungen,die demnaechst viellecht umgesetzt werden:
 
-https://github.com/kubernetes/kubernetes/issues/20092  (fuer Services)
-https://github.com/kubernetes/kubernetes/issues/23880 (fuer Loadbalancer)
+[fuer Services](https://github.com/kubernetes/kubernetes/issues/20092
+[fuer Loadbalancer](https://github.com/kubernetes/kubernetes/issues/23880
 
 Auch der Nginx-Ingress-Controller hilft uns hier nicht weiter, da er von Hause aus als Webserver mit solchen Diensten und Protokollen nichts zu tun hat. Aber auch dazu hier ein Workaround: https://kubernetes.github.io/ingress-nginx/user-guide/exposing-tcp-udp-services/
 
 Und zu guter Letzt: Debug Infos zu DNS in Kubernetes:
-https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
+
+[von Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
+[von AlibabaCloud](https://www.alibabacloud.com/help/en/ack/ack-managed-and-ack-dedicated/user-guide/dns-best-practice)
