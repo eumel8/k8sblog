@@ -4,7 +4,7 @@ tag: en
 title: Vcluster Backup
 subtitle: Enhancement of Crossplane Composition
 date: 2024-03-14
-background: '/images/k8s-cosmos.png'
+background: '/images/vcluster-backup.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

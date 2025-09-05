@@ -4,7 +4,7 @@ tag: de
 title: Cluster API mit Vcluster
 subtitle: Kubernetes Cluster erstellen mit Kubernetes Cluster
 date: 2024-06-09
-background: '/images/k8s-cosmos.png'
+background: '/images/cluster-api-vcluster.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

@@ -4,7 +4,7 @@ tag: de
 title: containerd Metriken in Kubernetes
 subtitle: Messen was im Hafen los ist
 1ate: 2025-01-23
-background: '/images/k8s-cosmos.png'
+background: '/images/container-metrics.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---
