@@ -4,7 +4,7 @@ tag: de
 title: storagecheck und andere Monitoring Helferleins
 subtitle: Prometheus Metriken in anderen Programmen nutzen
 1ate: 2025-08-03
-background: '/images/k8s-cosmos.png'
+background: '/images/helferlein.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

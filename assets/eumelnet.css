@@ -1,0 +1,4 @@
+/* Overwrites startbootstrap-clean-blog for Eumelnet Blogs */
+header.masthead:before {
+  background-color: rgba(0, 0, 0, 0.9);
+}
