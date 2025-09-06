@@ -4,7 +4,7 @@ tag: de
 title: Kubernetes Kommandozeilenwerkzeuge
 subtitle: Wie arbeite ich jeden Tag mit Kubernetes
 date: 2023-08-18
-background: '/images/k8s-cosmos.png'
+background: '/images/kubectl-cli-curl.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

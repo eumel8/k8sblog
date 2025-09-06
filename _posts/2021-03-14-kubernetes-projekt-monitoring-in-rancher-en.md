@@ -4,7 +4,7 @@ tag: en
 title: Kubernetes Project Monitoring in Rancher
 subtitle: Prometheus and Grafana are the top tools when it comes to monitoring and alarming in a cloud-native environment. But as powerful as the tools are, the configuration effort can also be extensive. In Rancher 2.5, the previously integrated Prometheus Monitoring has been completely revised. With Prometheus Operator there is already a ready-made solution for the cluster owner. The project owner can create his own monitoring instance and manage it according to his needs.
 date: 2021-03-14
-background: '/images/k8s-cosmos.png'
+background: '/images/kubernetes-rancher.png'
 ---
 
 We already got to know the Kubernetes operator <a href="https://blog.eumelnet.de/blogs/blog8.php/black-belt-dan-5-kubernetes-operator"> in this article </a>. The Kubernetes API is expanded with its own resource definitions and can be used as a punch as often as you like. The <a href="https://github.com/prometheus-operator"> Prometheus Operator </a> is such a punch that Rancher has embedded in his tool when the app is installed via the Marketplace and yet the Reveals independence. The proxy functionality in the browser can be experienced in practice when the internal services Prometheus and Grafana are addressed via Rancher authentication.

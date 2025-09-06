@@ -4,7 +4,7 @@ tag: en
 title: "High Performance Go Lang Apps with OTC RDS Operator"
 subtitle: "IT products that require explanation or crazy technologies become a little clearer in their function if they can be tested in practice. A demo app is helpful for this"
 date: 2022-09-17
-background: '/images/k8s-cosmos.png'
+background: '/images/high-performance-golang.png'
 twitter: '/images/2022-05-27-1.png'
 author: eumel8
 ---

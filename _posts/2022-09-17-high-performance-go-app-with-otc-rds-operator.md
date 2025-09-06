@@ -4,7 +4,7 @@ tag: de
 title: "Hochleistung-GoLang-Applikationen mit OTC RDS Operator"
 subtitle: "Erklärungsbedürftige IT-Produkte oder abgefahrene Technologien werden in der Funktion etwas anschaulicher, wenn sie in der Praxis erprobt werden können. Hilfreich dazu ist eine Demo App."
 date: 2022-09-17
-background: '/images/k8s-cosmos.png'
+background: '/images/high-performance-golang.png'
 twitter: '/images/2022-05-27-1.png'
 author: eumel8
 ---

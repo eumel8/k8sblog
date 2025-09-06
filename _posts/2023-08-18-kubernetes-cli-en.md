@@ -4,7 +4,7 @@ tag: en
 title: Kubernetes Command Line Tools
 subtitle: How to work with Kubernetes on a daily basis
 date: 2023-08-18
-background: '/images/k8s-cosmos.png'
+background: '/images/kubectl-cli-curl.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

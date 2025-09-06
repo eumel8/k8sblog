@@ -4,7 +4,7 @@ tag: en
 title: "Black Belt, Dan 5: Kubernetes Operator"
 subtitle: "Automation in the IT landscape is a long-term goal. With tools such as Puppet, Chef or Ansible, the operator takes the approach of leaving recurring processes to the computer. Or roll out predefined states of environments in the data center. Since DevOps at the latest, however, the entire value chain and the life cycle of an application must always be considered."
 date: 2020-07-10
-background: '/images/k8s-cosmos.png'
+background: '/images/black-belt.png'
 ---
 
 The problem with all kinds of automation tools is that you first have to learn the tools in order to be able to use them for the actual task, such as installing an application or a database. Over the time, you also take care of the life cycle of these tools. New releases appear, with new functions and new syntax. Remember: You just wanted to install the application ?!

@@ -4,7 +4,7 @@ tag: en
 title: "Self-Made Kubernetes Admission Controller"
 subtitle: "Kubernetes Admission Controller for Cosign image verification are many. But if these do not meet your own requirements, you build one yourself. You can find out how to do this in this article"
 date: 2023-01-07
-background: '/images/k8s-cosmos.png'
+background: '/images/admission-control.png'
 twitter: 'images/cosignwebhook.png'
 author: eumel8
 ---

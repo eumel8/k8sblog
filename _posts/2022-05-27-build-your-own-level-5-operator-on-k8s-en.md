@@ -4,7 +4,7 @@ tag: en
 title: "Build your own Level 5 Operator on K8s"
 subtitle: "2 years ago I explained Black Belt Dan 5 Kubernetes Operator. Today it's time for a practical example for RDS instances on Open Telekom Cloud."
 date: 2022-05-27
-background: '/images/k8s-cosmos.png'
+background: '/images/level-5-operator.png'
 twitter: '/images/2022-05-27-1.png'
 author: eumel8
 ---

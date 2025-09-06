@@ -4,7 +4,7 @@ tag: en
 title: Promcon EU 2023 Recap
 subtitle: A review of the Promcon 2023 in Berlin
 date: 2023-10-01
-background: '/images/k8s-cosmos.png'
+background: '/images/promcon-berlin.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

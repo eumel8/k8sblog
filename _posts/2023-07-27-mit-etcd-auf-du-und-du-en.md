@@ -4,7 +4,7 @@ tag: en
 title: "hobnob etcd"
 subtitle: "Recover Kubernetes data from an etcd backup. That sounds not so cosy, but was required recently, because someone deleted old CRDs"
 date: 2023-07-27
-background: '/images/k8s-cosmos.png'
+background: '/images/mit-etcd-auf-du-und-du.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

@@ -4,7 +4,7 @@ tag: de
 title: "Kubernetes an Rancher K3s und RKE2 auf OTC mit Terraform"
 subtitle: Mit Kubernetes Install Quickies haben wir uns vor einiger Zeit schon mal beschäftigt. Sehr guten Eindruck machte damals schon K3S, ein einzelnes Binary, entwickelt von Rancher, zur Benutzung in schmalen Umgebungen für Kubernetes. Wie kriegen wir aber schnell eine arbeitsfähige Umgebung zum Laufen?
 date: 2021-07-17
-background: '/images/k8s-cosmos.png'
+background: '/images/kubernetes-rancher.png'
 ---
 
 Die Antwort lautet wieder Terraform. Mit Terraform können wir Zustände von Resourcen in der Infrastruktur beschreiben, die dann wieder durch Module oder Provider bereitgestellt werden. Um etwa Resourcen in der Open Telekom Cloud zu nutzen, gibt es den <a href="https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs">Terraform Provider Opentelekomcloud </a>. Dieser stellt Resourcedefinitionen bereit wie etwa ein VPC:

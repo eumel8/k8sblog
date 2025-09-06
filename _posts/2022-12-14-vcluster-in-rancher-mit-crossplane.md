@@ -4,7 +4,7 @@ tag: de
 title: "vcluster in Rancher mit Crossplane"
 subtitle: "Im letzten Beitrag haben wir gelernt, vcluster in einem experimentellen Weg in Rancher zu implementieren. Jetzt automatisieren wir Dinge und erweitern unsere Dienste mit Crossplane"
 date: 2022-12-14
-background: '/images/k8s-cosmos.png'
+background: '/images/vcluster-rancher.png'
 twitter: '/images/vcluster.png'
 author: eumel8
 ---

@@ -4,7 +4,7 @@ tag: de
 title: Kubernetes auf Nachfrage skalieren
 subtitle: Keda und Keda HTTP Add-On
 date: 2023-11-05
-background: '/images/k8s-cosmos.png'
+background: '/images/kubernetes-keda-scale.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

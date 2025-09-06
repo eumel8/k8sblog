@@ -4,7 +4,7 @@ tag: de
 title: Kubernetes Multicluster in Rancher mit Istio
 subtitle: "Meine letzten Worte 2020 waren: Der Kubernetes Cluster ist nicht das Ende der Fahnenstange. Wenn man an Hohverfügbarkeit oder Standortredundanz, brauch man am wenigsten 2 Kubernetes Cluster"
 date: 2021-12-09
-background: '/images/k8s-cosmos.png'
+background: '/images/kubernetes-rancher.png'
 twitter: '/images/k8s-blog-twitter.png'
 ---
 

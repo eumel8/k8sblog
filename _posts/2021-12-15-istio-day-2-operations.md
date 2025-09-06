@@ -4,7 +4,7 @@ tag: de
 title: Istio Tag 2 Betrieb in Rancher
 subtitle: "Einige Tage zuvor installierten wir Istio in Kubernetes Multi-Cluster. Jetzt ist es Zeit für den Tag 2 Betrieb mit Kiali, Jaeger, Grafana und Prometheus."
 date: 2021-12-15
-background: '/images/k8s-cosmos.png'
+background: '/images/kubernetes-rancher.png'
 twitter: '/images/k8s-blog-twitter.png'
 ---
 

@@ -4,7 +4,7 @@ tag: de
 title: "Kubernetes Admission Controller im Eigenbau"
 subtitle: "Kubernetes Admission Controller für Cosign Image Verifizierung gibt es schon am Markt. Wenn diese aber nicht den eigenen Ansprüchen genügen, baut man einen selber. Wie das geht, erfährst Du in diesem Artikel"
 date: 2023-01-07
-background: '/images/k8s-cosmos.png'
+background: '/images/admission-control.png'
 twitter: 'images/cosignwebhook.png'
 author: eumel8
 ---

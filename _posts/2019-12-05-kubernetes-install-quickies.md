@@ -4,7 +4,7 @@ tag: de
 title: "Kubernetes Install Quickies"
 subtitle: Kubernetes erweckt den Eindruck, hochkompliziert zu sein. Und meistens ist es das auch. Aber es gibt einige sehr leichgewichtige Tools bzw. Methoden, um Kubernetes schnell zu installieren. Es sind nur ein Kommandozeilen und hier sind einige Methoden
 date: 2019-12-05
-background: '/images/k8s-cosmos.png'
+background: '/images/quickies.png'
 ---
 
 Vorbedingungen

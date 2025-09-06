@@ -4,7 +4,7 @@ tag: en
 title: "Go Project: The Overlay Network Test"
 subtitle: "One year ago I started to learn the programming language Go. Since them I reviewed multiple source code or wrote one or another patch, which was no more then a one-liner. Time to wrote the first own program."
 date: 2021-12-31
-background: '/images/k8s-cosmos.png'
+background: '/images/gopher-over-sea.png'
 twitter: '/images/2021-12-31-2.png'
 author: eumel8
 ---

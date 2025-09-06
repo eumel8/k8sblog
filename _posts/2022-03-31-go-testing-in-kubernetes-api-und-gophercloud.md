@@ -4,7 +4,7 @@ tag: de
 title: "Go Testing in Kubernetes API und Gophercloud"
 subtitle: "Ein Go Programm zu schreiben, ist auf dem Hello-World-Level genauso einfach wie in anderen Programmiersprachen. Wie sieht es mit Code Testing aus? Go hält auch hier ein Bordmittel bereit, um Code zu formatieren und zu testen. Lesen wir an zwei Beispielen wie dies zu bewerkstelligen ist."
 date: 2022-03-31
-background: '/images/k8s-cosmos.png'
+background: '/images/gophercloud.png'
 twitter: '/images/2021-12-31-2.png'
 author: eumel8
 ---

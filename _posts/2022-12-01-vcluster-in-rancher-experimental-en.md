@@ -4,7 +4,7 @@ tag: en
 title: "vcluster in Rancher Experimental"
 subtitle: "Kubernetes comes in different forms. As a single node, up to thousands. As a single user, up to thousands. The problem is the separation of different users, without restricting cluster rights. The experiment shows how this works"
 date: 2022-12-01
-background: '/images/k8s-cosmos.png'
+background: '/images/vcluster-rancher.png'
 twitter: '/images/vcluster.png'
 author: eumel8
 ---

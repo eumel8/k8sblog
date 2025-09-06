@@ -4,7 +4,7 @@ tag: de
 title: "Schwarzer Gürtel, Dan 5: Kubernetes Operator"
 subtitle: "Automatisierung in der IT-Landschaft ist ein langverfolgtes Ziel. Mit Werkzeugen wie Puppet, Chef oder Ansible verfolgt der Operator den Ansatz, immer wiederkehrende Ablaeufe dem Computer zu ueberlassen. Oder vordefinierte Zustaende von Umgebungen im Serverpark auszurollen. Spaetestens seit DevOps ist dabei aber immer die komplette Wertschoepfungskette und damit der Lebenszyklus einer Applikation zu betrachten."
 date: 2020-07-10
-background: '/images/k8s-cosmos.png'
+background: '/images/black-belt.png'
 ---
 
 Das Problem von Automatisierungstools aller Art ist es, dass man zuerst die Tools lernen muss, um sie fuer die eigentliche Aufgabe nutzen zu koennen, etwa eine Applikation oder eine Datenbank zu installieren. Mit der Zeit kuemmert man sich auch um den Lebenszyklus dieser Tools. Neue Releases erscheinen, mit neuen Funktionen und neuer Syntax. Dabei wollte man doch bloss die Applikation installieren?!

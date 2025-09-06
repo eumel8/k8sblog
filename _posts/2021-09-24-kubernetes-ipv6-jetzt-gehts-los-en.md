@@ -4,7 +4,7 @@ tag: en
 title: Kubernetes IPv6 - now we starting
 subtitle: Hooray! Kubernetes 1.21 is there! And now the implementation of IPv6 DualStack in K3S. IPv6 can be used together with IPv4. Well, what does that mean exactly? Let's take a look at this in practice on our home network.
 date: 2021-09-24
-background: '/images/k8s-cosmos.png'
+background: '/images/ipv6-evolution.png'
 ---
 
 <strong>IPv6 Basics</strong>
