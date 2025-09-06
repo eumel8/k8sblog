@@ -4,7 +4,7 @@ tag: en
 title: Sustainable Computing
 subtitle: The climate change in your Kubernetes cluster
 date: 2023-11-16
-background: '/images/k8s-cosmos.png'
+background: '/images/sustainable-computing.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

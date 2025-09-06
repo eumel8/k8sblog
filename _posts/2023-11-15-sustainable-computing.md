@@ -4,7 +4,7 @@ tag: de
 title: Nachhaltiges Computern
 subtitle: Der Klimawandel in Deinem Kubernetes Cluster
 date: 2023-11-14
-background: '/images/k8s-cosmos.png'
+background: '/images/sustainable-computing.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---

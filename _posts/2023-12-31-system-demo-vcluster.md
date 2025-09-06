@@ -4,7 +4,7 @@ tag: de
 title: System Demo Vcluster
 subtitle: Istio Service Mesh mit Vcluster
 date: 2023-12-31
-background: '/images/k8s-cosmos.png'
+background: '/images/istio-service-mesh.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---
