@@ -130,6 +130,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: tls-redirect
+  namespace: drachenboot
 spec:
   parentRefs:
   - name: kubeadm-gateway
@@ -166,10 +167,9 @@ service/drachenboot-webapp      ClusterIP      10.109.189.86   <none>        808
 service/kubeadm-gateway-nginx   LoadBalancer   10.111.174.94   164.30.3.60   80:31369/TCP,443:31439/TCP   4h29m
 ```
 
-Den Ingress Controller und Kube-VIP können wir jetzt löschen:
+Den Ingress Controller können wir jetzt löschen:
 
 ```bash
-rm /etc/kubernetes/manifests/kube-vip.yaml
 helm -n ingress-nginx delete ingress-nginx
 ```
 
@@ -187,3 +187,10 @@ Aber wer weiss, vielleicht lebt Ingress Nginx als Fork weiter und wir brauchen n
 
 Bis dahin
 
+UPDATE: Mit einem zweiten Gateway im Cluster wird man mit diesem Setup nicht weit kommen, denn:
+
+```
+  Warning  FailedScheduling  50s   default-scheduler  0/1 nodes are available: 1 node(s) didn't have free ports for the requested pod ports. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
+```
+
+`hostPorts` hatten wir ja auf Port 80/443 gebunden, und die können pro Node nur einmal vergeben werden. Brauch man also ein anderes Konzept.
