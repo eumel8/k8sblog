@@ -194,3 +194,8 @@ UPDATE: Mit einem zweiten Gateway im Cluster wird man mit diesem Setup nicht wei
 ```
 
 `hostPorts` hatten wir ja auf Port 80/443 gebunden, und die können pro Node nur einmal vergeben werden. Brauch man also ein anderes Konzept.
+Ohne hostPort geht es aber auch nicht, weil kube-vip nur zu einer FloatingIP routen kann, die auf einem Service Pod (gateway) gebunden ist.
+Alternative ist noch `tls.mode: Passthrough`, aber das bedeutet, dass man SSL in der Applikation terminieren muss. Wäre zwar sicherer, aber das kann nicht jede App, wenn sie bislang mit dem Ingress gelebt hat. Es gibt also nur zwei gangbare Wege:
+
+- Jedes Gateway bekommt über kube-vip eine eigene FloatingIP. Konfiguration bleibt sonst wie oben
+- Wildcard Zertifikat für eine Subdomain mit DNS01-Challenge. Man kann zwar mehrere Hostnamen in einem Zertifikat angeben (SNI), allerdings unterstützt das Gateway nur einen `hostname`. Dort könnte man zwar `*.otc.mcsps.de` angeben und statt Annotation den cert-manager durch `Certificate`-Resourcen Zertifikate ausstellen lassen. Aber da muss man auf unterschiedliche Secrets verweisen, da es sonst bei den Zertifikaten zu Konflikten kommt. Man kann im Gateway zwar mehrere `certificateRefs` angeben, aber da scheint es einen Bug zu geben: Es wird nur das erste automatisch erstellt. Zum Schluss hat man auch nur eine Friemellösung, die nur auf einer Subdomain funktioniert. Schade, was hat man sich bloss dabei gedacht...
