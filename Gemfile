@@ -40,3 +40,5 @@ gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 gem "html-proofer"
 gem "webrick"
 gem "rake"
+# logs
+gem "logger"
