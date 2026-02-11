@@ -83,7 +83,9 @@ Beim Kind Cluster ist noch zu beachten, dass dieser erheblich mehr Resourcen bra
   memory = "8g"
 ```
 
-Alternativ kann man im Kind Manifest die Anzahl der Nodes erhöhen, was einerseits eh ganz gut ist, um etwa Daemonsets zu testen. Andererseits die Sache auch schon wieder unnötig komplexer macht. Muss man selber wissen.
+Alternativ kann man im Kind Manifest die Anzahl der Nodes erhöhen, was einerseits eh ganz gut ist, um etwa Daemonsets zu testen. Andererseits die Sache auch schon wieder unnötig komplexer macht.
+
+Aus Security-Sicht kann man aber mit Kind erfolgreicher sein als bei K3D. Dort kann es passieren, dass der Cluster läuft, der Node Ready ist, aber keine Pods starten. Da kann man jetzt anfangen, den CNI-Treiber auszutauschen, was aber minder erfolgreich ist. Bleibt nur mit der DIND Version immer weiter runterzugehen: docker:25-dind, docker:24-dind
 
 # Matrix
 
@@ -186,5 +188,9 @@ fi
 echo "✅ E2E Test Installation Phase Completed!"
 echo "➡️  You can now check specific functionality (e.g., via port-forward)."
 ```
+
+# Fazit
+
+Ende zu Ende Tests auf Kubernetes Clustern sind in Gitlab-CI möglich, wenn man viel bastelt und viel Kompromisse eingeht. Entweder bleibt man bei älteren Docker-Versionen und lebt mit bekannten Sicherheitslücken, bis es eines Tages um die Ohren fliegt. Oder man betreibt seinen eigenen priviledged Runner, was noch mit die beste Option sein kann. Allerdings wird man auf gehärteten Kubernetes-Clustern damit auch keinen Spass haben. 
 
 ref: [https://blog.cesc.cool/guide-for-a-gitlab-job-and-kind](https://blog.cesc.cool/guide-for-a-gitlab-job-and-kind)
