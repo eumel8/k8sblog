@@ -98,6 +98,10 @@ k3d-cluster:
       - K8S_VERSION: ["v1.35.0-k3s3", "v1.34.3-k3s3"]
 ```
 
+Pipeline im Gitlab:
+
+<img src="/images/k8s-ci-cd-pipeline.png"/>
+
 # Ende zu Ende
 
 Zum Schluss noch eine Idee für ein Ende zu Ende Test eines Helm Charts. Kann man sicher noch parametisieren, damit man es wiederverwenden kann. Eine Grundidee ist ein eignes `values-e2e.yaml`, in dem ich Resourcen anpassen oder Features an- und ausschalten kann. Auch kann man mit `end2end: true` Konditionen in den Templates setzen, die nur bei den Ende zu Ende Tests ausgeführt werden.
