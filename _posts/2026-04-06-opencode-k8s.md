@@ -4,7 +4,7 @@ tag: de
 title: Opencode K8S
 subtitle: Die KI repariert jetzt endlich unsere Cluster
 1ate: 2026-04-06
-background: '/images/gitlab-ci-k8s.png'
+background: '/images/opencode.png'
 twitter: 'images/k8s-blog2.png'
 author: eumel8
 ---
@@ -26,7 +26,7 @@ Dazu gibt es Produkte wie ChatGPT Enterprise oder Github Copilot Enterprise. Im 
 
 Aber was sind jetzt diese Agents? Und wie kommen die Daten überhaupt zum LLM? ChatGPT beantwortet diese Frage so:
 
-
+<pre>
 +-------------------+
 |       User        |
 |  (Prompt/Input)   |
@@ -91,6 +91,7 @@ Aber was sind jetzt diese Agents? Und wie kommen die Daten überhaupt zum LLM? C
 |       User        |
 |   (Antwort)       |
 +-------------------+
+</pre>
 
 Das LLM ist zwar das Gehirn (und brauch auch die meisten Resourcen), aber davor brauch es ein Input Prozessing, damit das LLM die Daten mundgerecht dargereicht wird. Und das Gehirn brauch vielleicht zusätzliche Informationen, die es durch Frage/ANtwort vom Benutzer erfragen kann, oder optimalerweise sich selbst beschafft, etwa mit `kubectl get nodes` vom Rechner des Benutzers. Agenten sind also sowas wie Hände und Füsse für das Gehirn.
 
