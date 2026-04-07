@@ -113,8 +113,8 @@ Kein Problem. Man ruft einfach `/connect` auf, um einen neuen LLM-Provider auszu
 
 Es bieten sich als Optionen an:
 
-- OpenAI (Plus/Pro/API), muss dann einen API-Key eingeben und das Model seiner Wahl. Aber Vorsicht: ChatGPT Enterprise bietet nicht automatisch API-Zugang zu OpenAI. Das muss der Enterprise-Administrator extra freigeben, ansonsten bezahlt man an der Stelle extra mit einem Individualzugang.
-- Github Copilot. Hier gibt es zwei Wege. Entweder man hat Github selbst gehostet unter eigener Domain oder einer Subdomain von github.com, dann muss man diese eingeben. Oder bei Github Public erkennt der Login, dass es sich um einen Enterprise-Account handelt und wird zum Single-Sign-On seiner Firma über https://github.com/login/device/ weitergeleitet. Dort muss man über Cortex einen Code eingeben, der von opencode generiert wurde und wenn der stimmt, ist man quasi eingeloggt. 
+- OpenAI (Plus/Pro/API), muss dann einen [API-Key](https://platform.openai.com/settings/api-keys)  eingeben und das Model seiner Wahl. Aber Vorsicht: ChatGPT Enterprise bietet nicht automatisch API-Zugang zu OpenAI. Das muss der Enterprise-Administrator extra freigeben, ansonsten bezahlt man an der Stelle extra mit einem Individualzugang.
+- Github Copilot. Hier gibt es zwei Wege. Entweder man hat Github selbst gehostet unter eigener Domain oder einer Subdomain von github.com, dann muss man diese eingeben. Oder bei Github Public erkennt der Login, dass es sich um einen Enterprise-Account handelt und wird zum Single-Sign-On seiner Firma über [https://github.com/login/device](https://github.com/login/device/) weitergeleitet. Dort muss man über Cortex einen Code eingeben, der von opencode generiert wurde und wenn der stimmt, ist man quasi eingeloggt. 
 Jetzt noch das richtige Model wählen wie Claude Sonnet 4.6 und schon kanns losgehen.
 
 # Claude Markdown
