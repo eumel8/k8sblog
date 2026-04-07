@@ -122,6 +122,10 @@ Jetzt noch das richtige Model wählen wie Claude Sonnet 4.6 und schon kanns losg
 Es gibt immer wieder Horrormeldungen, wo die KI ganze Festplatten löscht und scheinbar ausser Rand und Band gerät. Nun, bei claude code gibt es bei jeder Aktion eine Sicherheitsabfrage, bevor wirklich was gemacht wird.
 Ausserdem kann man das Verhalten des Agenten mit einer [CLAUDE.md Datei](https://github.com/eumel8/k8s-agent/blob/main/CLAUDE.md) steuern. Man beschreibt etwa, was die Rolle des Agenten sein soll, wie er an die Kubernetes Cluster rankommt, was der übliche Ablauf ist und welche Stop-Rules es gibt. Zum Beispiel: Rumgucken ist immer erlaubt, aber wenn was geändert oder gelöscht werden soll, soll der Agent explizit nachfragen.
 
+# Sonstiges
+
+Unter Sonstiges will ich noch [codex](https://openai.com/de-DE/codex/) erwähnen, ein CLI Tool ähnlich wie claude code, basierend auf ChatGPT, was Open-AI schnell hinzugekauft hat, um neben dem Produkt von Anthropic auch etwas plazieren zu können. Statt CLAUDE.md erwartet codex eine AGENTS.md Datei, die man auch mit `/init` anlegen kann. AGENTS.md soll der Standard für alle KIs werden, es gibt sogar eine eigene [Webseite](https://agents.md/) mit vielen Beispielen.
+
 # Fazit
 
 Opencode ist die Handreichung eines Open-Source-Projekts, dass man jederzeit auf [Github](https://github.com/anomalyco/opencode) verfolgen und mitmachen kann, um herstellerunabhängig KI nutzen zu können. Dabei muss man nicht auf die grossen, leistungsstarken LLM verzichten. Bei der täglichen Arbeit kann es enorm helfen, den Aufwand stark reduzieren und Ausfallzeiten verkürzen. Der nächste Schritt wäre vielleicht die Selbstheilung, also der Prometheus Alertmanager schickt die KI los, statt über Webhook ein Ticket zu erstellen.
